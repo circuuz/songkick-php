@@ -57,17 +57,6 @@ class SongkickClient {
     return $this->handleResponse($response);
   }
 
-  public function nextPage($pages)
-  {
-    $response = $this->http_client->request('GET', $pages['next'], [
-      'apikey' => $this->getApiKey(),
-      'headers' => [
-        'Accept' => 'application/json'
-      ]
-    ]);
-    return $this->handleResponse($response);
-  }
-
   public function getApiKey()
   {
     return $this->apiKey;
