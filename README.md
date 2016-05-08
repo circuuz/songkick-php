@@ -12,14 +12,20 @@ The recommended way to install is through
 [Composer](http://getcomposer.org).
 
 ```bash
-# Install Composer
+# Install [Composer](http://getcomposer.org/)
 curl -sS https://getcomposer.org/installer | php
 ```
 
-Next, run the Composer command to install:
+Next, run the [Composer](http://getcomposer.org/) command to install the latest version on [Packagist](https://packagist.org/packages/wildlifechorus/songkick-php):
 
 ```bash
-php composer install
+composer require wildlifechorus/songkick-php
+```
+
+Update in the future:
+
+```bash
+composer update
 ```
 
 ## Client
