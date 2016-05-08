@@ -1,8 +1,8 @@
 # Songkick API client built on top of Guzzle 6
 
-This is currently **under construction**! :construction:
+I made this for [Tradiio](https://tradiio.com), but I think more people could use it :)
 
-I've made this to suit **[Tradiio](https://tradiio.com)**'s needs, but will probably finish this sometime soon...or maybe not (I dunno yet).
+Apply for a [Songkick](http://www.songkick.com/) API Key [here](http://www.songkick.com/api_key_requests/new).
 
 Powered by **[Songkick](http://www.songkick.com/)**
 
@@ -29,21 +29,80 @@ php composer install
 $client = new SongkickClient(apiKey);
 ```
 
-## Artists Search
+## Search
 
 ```php
 // http://www.songkick.com/developer/artist-search
-// Find artists by name (ex: 'O Quarto Fantasma')
-$client->artists->getArtists(artistName);
+// Search Artists (ex: 'O Quarto Fantasma')
+$client->search->searchArtist(artistName, page, perPage);
+
+// http://www.songkick.com/developer/event-search
+// Search Event
+$client->search->searchEvent(artistName, lat, long, ipAddress, page, perPage);
+
+// http://www.songkick.com/developer/location-search
+// Search Location
+$client->search->searchLocation(lat, long, ipAddress, page, perPage);
+
+// http://www.songkick.com/developer/venue-search
+// Search Venue
+$client->search->searchVenue(venueName, page, perPage);
+
+// http://www.songkick.com/developer/similar-artists
+// Search Similar Artists
+$client->search->searchSimilarArtists(artistId, page, perPage);
 ```
 
-## Artist Calendar
+## Calendar
 
 ```php
 // http://www.songkick.com/developer/upcoming-events-for-artist
-// Get Artist calendar (upcoming events)
-// You get the artistID by searching the artist getArtists
-$client->calendar->getCalendar(artistID);
+// Get Artist Calendar
+$client->calendar->artistCalendar(artistID, minDate, maxDate, order, page, perPage);
+
+// http://www.songkick.com/developer/upcoming-events-for-venue
+// Get Venue Calendar
+$client->calendar->venueCalendar(venueID, page, perPage);
+
+// http://www.songkick.com/developer/upcoming-events-for-metro-area
+// Get Metro Area Calendar
+$client->calendar->metroAreaCalendar(metroAreaId, page, perPage);
+
+// http://www.songkick.com/developer/upcoming-events-for-user
+// Get User Calendar
+$client->calendar->userCalendar(username, order, page, perPage);
+```
+
+## Gigography
+
+```php
+// http://www.songkick.com/developer/past-events-for-artist
+// Get Artist Gigography
+$client->gigography->artistGigography(artistId, minDate, maxDate, order, page, perPage);
+
+// http://www.songkick.com/developer/past-events-for-user
+// Get User Gigography
+$client->gigography->userGigography(username, order, page, perPage);
+```
+
+## Details
+
+```php
+// http://www.songkick.com/developer/events-details
+// Get Event Details
+$client->details->eventDetails(eventId, page, perPage);
+
+// http://www.songkick.com/developer/venue-details
+// Get Venue Details
+$client->details->venueDetails(venueId, page, perPage);
+```
+
+## Setlists
+
+```php
+// http://www.songkick.com/developer/setlists
+// Get Event's Setlists
+$client->setlists->eventSetlists(eventId, page, perPage);
 ```
 
 ## Copyleft and License :poop:

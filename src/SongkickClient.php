@@ -8,23 +8,28 @@ use function GuzzleHttp\Psr7\stream_for;
 
 class SongkickClient {
 
-  /** @var Client $http_client */
   private $http_client;
 
-  /** @var string API key */
   protected $apiKey;
 
-  /** @var SongkickArtist $users */
-  public $artists;
+  public $search;
 
-  /** @var SongkickArtist $calendar */
   public $calendar;
+
+  public $gigography;
+
+  public $setlists;
+
+  public $details;
 
   public function __construct($apiKey)
   {
     $this->setDefaultClient();
-    $this->artists = new SongkickArtistSearch($this);
-    $this->calendar = new SongkickArtistCalendar($this);
+    $this->search = new SongkickSearch($this);
+    $this->calendar = new SongkickCalendar($this);
+    $this->gigography = new SongkickGigography($this);
+    $this->setlists = new SongkickSetlists($this);
+    $this->details = new SongkickDetails($this);
 
     $this->apiKey = $apiKey;
   }
@@ -41,19 +46,12 @@ class SongkickClient {
 
   public function get($query)
   {
-    if (strpos($query, '?query=') !== false) {
-      $response = $this->http_client->request('GET', "http://api.songkick.com/api/3.0/$query&apikey=".$this->getApiKey(), [
-        'headers' => [
-          'Accept' => 'application/json'
-        ]
-      ]);
-    } else {
-      $response = $this->http_client->request('GET', "http://api.songkick.com/api/3.0/$query?apikey=".$this->getApiKey(), [
-        'headers' => [
-          'Accept' => 'application/json'
-        ]
-      ]);
-    }
+    $response = $this->http_client->request('GET', "http://api.songkick.com/api/3.0/$query&apikey=".$this->getApiKey(), [
+      'headers' => [
+        'Accept' => 'application/json'
+      ]
+    ]);
+
     return $this->handleResponse($response);
   }
 
