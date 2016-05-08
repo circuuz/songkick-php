@@ -1,8 +1,8 @@
 # Songkick API client built on top of Guzzle 6
 
-I made this for [Tradiio](https://tradiio.com), but I think more people could use it :)
+I made this for **[Tradiio](https://tradiio.com)**, but I think more people could use it :)
 
-Apply for a [Songkick](http://www.songkick.com/) API Key [here](http://www.songkick.com/api_key_requests/new).
+Apply for a **[Songkick](http://www.songkick.com/)** API Key [here](http://www.songkick.com/api_key_requests/new).
 
 Powered by **[Songkick](http://www.songkick.com/)**
 
