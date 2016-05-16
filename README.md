@@ -1,4 +1,5 @@
 # Songkick API client built on top of Guzzle 6
+[![Code Climate](https://codeclimate.com/github/wildlifechorus/songkick-php/badges/gpa.svg)](https://codeclimate.com/github/wildlifechorus/songkick-php) [![Test Coverage](https://codeclimate.com/github/wildlifechorus/songkick-php/badges/coverage.svg)](https://codeclimate.com/github/wildlifechorus/songkick-php/coverage)
 
 I made this for **[Tradiio](https://tradiio.com)**, but I think more people could use it :)
 
